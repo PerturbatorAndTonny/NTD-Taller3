@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller3</title>
+  <script src="index.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>Pagina de Proyectos</h1>
+    <button id="btnNuevo" class="btn">Agregar proyecto Nuevo</button>
+  </header>
+
+  <div id="modal" class="hidden">
+    <div class="modal-content">
+      <form id="formProyecto">
+        <h1>Crear proyecto</h1>
+        <input type="text" id="proyectName" placeholder="Nombre del proyecto" required>
+        <textarea id="proyectDescription" placeholder="De que va el proyecto?" required></textarea>
+        <br/>
+        <button type="submit" class="btn">Guardar</button>
+      </form>
+      <button id="btnCerrar" class="btn">Cerrar</button>
+    </div>
+  </div>
+
+  <section id="proyectTable">
+    <!--- Esa seccion es creada dinamicamente a partir de los proyectos generados -->
+  </section>
+</body>
+
+</html>
