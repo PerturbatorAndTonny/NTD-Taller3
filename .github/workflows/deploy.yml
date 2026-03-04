@@ -1,0 +1,28 @@
+name: CI/CD NTD Taller3
+
+on:
+  push:
+    branches:
+      - master
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: CheckOut
+        uses: actions/checkout@v4
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+  deploy:
+    runs-on: ubuntu-20.04
+    needs: build
+    steps:
+      - name: Deploy on Ghp
+        id: development
+        uses: actions/deploy-pages@v4
+    environment:
+      name: github-pages
+      url: ${{ steps.development.outputs.page_url }}
