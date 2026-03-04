@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", renderTable());
+
 document.getElementById("formProyecto").addEventListener("submit", e => {
   e.preventDefault();
   const nameProyect = document.getElementById("proyectName").value.trim();
