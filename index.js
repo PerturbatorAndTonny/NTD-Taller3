@@ -1,3 +1,5 @@
+const catchElement = document.getElementById("proyectTable");
+
 document.addEventListener("DOMContentLoaded", renderTable());
 
 document.getElementById("formProyecto").addEventListener("submit", e => {
@@ -19,15 +21,25 @@ document.getElementById("btnCerrar").addEventListener("click", () => {
   document.getElementById("modal").classList.toggle("hidden");
 })
 
+function getProyects(){
+  const proyects = JSON.parse(localStorage.getItem("Proyect")) || [];
+  return proyects
+}
+
 function saveProyect(proyecto){
-  let proyect = JSON.parse(localStorage.getItem("Proyect")) || [];
+  let proyect = getProyects();
   proyect.push(proyecto);
   localStorage.setItem("Proyect", JSON.stringify(proyect));
 }
 
+function deleteProyect(nameProyect){
+  let proyects = getProyects();
+  proyects = proyects.filter((proyect) => proyect.nameProyect !== nameProyect);
+  localStorage.setItem("Proyect", JSON.stringify(proyects));
+}
+
 function renderTable() {
-  const catchElement = document.getElementById("proyectTable");
-  const proyects = JSON.parse(localStorage.getItem("Proyect")) || [];
+  const proyects = getProyects();
 
   catchElement.innerHTML = "";
 
@@ -42,8 +54,17 @@ function renderTable() {
     const descripcion = document.createElement("p");
     descripcion.textContent = proyect.descProyect
 
+    const btnEliminar = document.createElement("button");
+    btnEliminar.textContent= "Eliminar Proyecto";
+    btnEliminar.classList.add("btn");
+    btnEliminar.onclick = function () {
+      deleteProyect(proyect.nameProyect);
+      card.remove(btnEliminar);
+    }
+
     card.appendChild(titulo);
     card.appendChild(descripcion);
+    card.appendChild(btnEliminar);
 
     catchElement.appendChild(card);
   });
