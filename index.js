@@ -32,6 +32,12 @@ function saveProyect(proyecto){
   localStorage.setItem("Proyect", JSON.stringify(proyect));
 }
 
+function deleteProyect(nameProyect){
+  let proyects = getProyects();
+  proyects = proyects.filter((proyect) => proyect.nameProyect !== nameProyect);
+  localStorage.setItem("Proyect", JSON.stringify(proyects));
+}
+
 function renderTable() {
   const proyects = getProyects();
 
