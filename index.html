@@ -19,12 +19,14 @@
     <div class="modal-content">
       <form id="formProyecto">
         <h1>Crear proyecto</h1>
-        <input type="text" id="proyectName" placeholder="Nombre del proyecto" required>
-        <textarea id="proyectDescription" placeholder="De que va el proyecto?" required></textarea>
-        <br/>
-        <button type="submit" class="btn">Guardar</button>
+        <input type="text" id="proyectName" placeholder="Nombre del proyecto" class="controls" required>
+        <textarea id="proyectDescription" placeholder="De que va el proyecto?" class="controls" required></textarea>
+        <br />
+        <div class="botones">
+          <button type="submit" class="btn">Guardar</button>
+          <button id="btnCerrar" class="btn">Cerrar</button>
+        </div>
       </form>
-      <button id="btnCerrar" class="btn">Cerrar</button>
     </div>
   </div>
 
