@@ -49,6 +49,21 @@ h1 {
   margin: 8px 15px ;
 }
 
+.card input{
+  width:100%;
+  padding:8px;
+  margin-top:5px;
+  margin-bottom:5px;
+}
+
+.card ul{
+  padding-left:20px;
+}
+
+.card h4{
+  margin-top:15px;
+}
+
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
