@@ -1,6 +1,6 @@
 const catchElement = document.getElementById("proyectTable");
 
-document.addEventListener("DOMContentLoaded", renderTable());
+document.addEventListener("DOMContentLoaded", renderTable);
 
 document.getElementById("formProyecto").addEventListener("submit", e => {
   e.preventDefault();
@@ -59,7 +59,7 @@ function renderTable() {
     btnEliminar.classList.add("btn");
     btnEliminar.onclick = function () {
       deleteProyect(proyect.nameProyect);
-      card.remove(btnEliminar);
+      renderTable();
     }
 
     card.appendChild(titulo);
